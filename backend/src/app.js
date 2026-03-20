@@ -6,17 +6,20 @@ const connectDB = require("./config/db");
 
 const app = express();
 
-// Active CORS globalement pour une origine frontend précise.
+// Active CORS sur localhost:8080.
 app.use(
     cors({
         origin: "http://localhost:8080",
     })
 );
 
-// Parse automatiquement les corps JSON des requêtes entrantes.
+// Parse les JSON des requêtes entrantes.
 app.use(express.json());
 
-// Middleware de gestion d'erreurs centralisé.
+app.use("/auth", require("./routes/auth"));
+app.use("/products", require("./routes/products"));
+
+// Middleware de gestion d'erreurs.
 app.use((err, req, res, next) => {
     console.error(err);
     res

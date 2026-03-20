@@ -24,8 +24,8 @@ async function getProduct(req, res, next) {
 // POST /products
 async function createProduct(req, res, next) {
     try {
-        const { name, category, price, stock, description } = req.body;
-        const product = await Product.create({ name, category, price, stock, description });
+        const { name, category, price, stock } = req.body;
+        const product = await Product.create({ name, category, price, stock });
         return res.status(201).json(product);
     } catch (err) {
         return next(err);

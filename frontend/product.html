@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Detail produit - Voltaire</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="container detail-container">
+    <header class="topbar">
+      <h1>Voltaire - Detail produit</h1>
+      <a href="index.html" class="btn btn-ghost back-link">Retour au catalogue</a>
+    </header>
+
+    <section class="card">
+      <h2>Informations produit</h2>
+      <div id="detailStatus" class="status" aria-live="polite"></div>
+      <div id="productDetail" class="product-detail" hidden>
+        <div class="detail-row">
+          <span class="detail-label">Nom</span>
+          <span id="detailName" class="detail-value"></span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Categorie</span>
+          <span id="detailCategory" class="detail-value"></span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Prix</span>
+          <span id="detailPrice" class="detail-value"></span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Stock</span>
+          <span id="detailStock" class="detail-value"></span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">ID</span>
+          <span id="detailId" class="detail-value"></span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="product.js"></script>
+</body>
+
+</html>

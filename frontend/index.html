@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Mini Backoffice</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="container">
+    <header class="topbar">
+      <h1>Voltaire - Back-Office</h1>
+      <div id="tokenInfo" class="status" aria-live="polite"></div>
+    </header>
+
+    <div class="grid">
+      <section class="card" id="loginCard">
+        <h2>Connexion</h2>
+        <form id="loginForm" class="form">
+          <label class="field">
+            <span>Username</span>
+            <input type="text" id="username" placeholder="admin" required />
+          </label>
+          <label class="field">
+            <span>Password</span>
+            <input type="password" id="password" placeholder="admin" required />
+          </label>
+          <button class="btn btn-primary" type="submit">Obtenir un token</button>
+        </form>
+
+        <button id="logoutButton" class="btn btn-ghost" type="button" style="display:none;">
+          Se déconnecter
+        </button>
+      </section>
+
+      <section class="card" id="productsSection">
+        <h2>Catalogue produits</h2>
+
+        <form id="productForm" class="form">
+          <label class="field">
+            <span>Nom</span>
+            <input type="text" id="name" placeholder="Ex: Selle en cuir" required />
+          </label>
+          <label class="field">
+            <span>Catégorie</span>
+            <input type="text" id="category" placeholder="Ex: Selles" required />
+          </label>
+          <label class="field">
+            <span>Prix (€)</span>
+            <input type="number" id="price" placeholder="0" min="0" step="0.01" required />
+          </label>
+          <label class="field">
+            <span>Stock</span>
+            <input type="number" id="stock" placeholder="0" min="0" step="1" required />
+          </label>
+          <div id="editInfo" class="status"></div>
+          <div class="form-actions">
+            <button id="submitProductButton" class="btn btn-primary" type="submit">Ajouter</button>
+            <button id="cancelEditButton" class="btn btn-ghost" type="button" style="display:none;">
+              Annuler
+            </button>
+          </div>
+        </form>
+
+        <ul id="productList" class="product-list"></ul>
+      </section>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

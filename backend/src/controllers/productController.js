@@ -3,6 +3,17 @@ const Product = require("../models/Product");
 // GET /products
 async function getProducts(req, res, next) {
     try {
+        const { category, inStock } = req.query || {};
+        const filter = {};
+
+        if (category) {
+            filter.category = category;
+        }
+
+        if (inStock === "true") {
+            filter.stock = { $gt: 0 };
+        }
+
         const products = await Product.find(filter);
         return res.json(products);
     } catch (err) {

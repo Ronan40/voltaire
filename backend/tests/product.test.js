@@ -47,6 +47,15 @@ describe("Products API", () => {
     expect(res.body.name).toBe("Test");
   });
 
+  it("should filter products by category", async () => {
+    Product.find.mockResolvedValue([]);
+
+    const res = await request(app).get("/products?category=TestCat");
+
+    expect(res.statusCode).toBe(200);
+    expect(Product.find).toHaveBeenCalledWith({ category: "TestCat" });
+  });
+
   // Vérifie la suppression d'un produit via DELETE /products/:id.
   it("should delete a product", async () => {
     Product.findByIdAndDelete.mockResolvedValue({
